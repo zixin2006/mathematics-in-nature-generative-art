@@ -1,0 +1,67 @@
+\documentclass{ctexart}
+
+\usepackage[english]{babel}
+\usepackage[numbers]{natbib}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{subscript}
+\renewcommand{\cite}[1]{\textsuperscript{\citep{#1}}}
+
+\geometry{a4paper,left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+
+\begin{document}
+
+\section{Model 1}
+
+$$
+P_e = 0.254068, P_b = 0.719916
+$$
+$$
+E = (1 - 0.92) \times n_e \times 0.254068 + (1 - 0.55) \times n_b \times 0.719916 = 0.323962n_b + 0.0203254n_e
+$$
+$$
+\frac{n_e}{4200} + \frac{n_b}{5800} = 1
+\Rightarrow n_b = 5800 - \frac{29}{21}n_e
+\Rightarrow E = 1878.98 - 0.427051n_e
+$$
+
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (-1, 0) -- (6, 0) node[right] {Number of ebuses ($n_e$)};
+		\draw[->] (0, -1) -- (0, 6) node[right] {Ecological consequence ($E$)};
+		\node[below left] at (0, 0) {$O$};
+		\draw (0, 5) node[left] {1878.98} -- (5, 0.5);
+		\draw[lightgray, dashed] (0, 0.5) node[black, left] {85.37} -- (5, 0.5);
+		\draw[lightgray, dashed] (5, 0) node[black, below] {4200} -- (5, 0.5);
+	\end{tikzpicture}
+	\caption{Caption}
+\end{figure}
+
+\section{Model 2}
+
+$$
+C = C_e + C_s = 4200 \times 400000 + \frac{4200 \times 9000}{\beta} = 1680000000 + \frac{37800000}{\beta}
+$$
+$$
+b = 350.79, \frac{\mathrm{d}p}{\mathrm{d}t} = \theta bt
+$$
+$$
+p(t) = 
+\begin{cases}
+ 	\frac12 \theta bt^2 - C = 175.395\theta t^2 - 1680000000 - \frac{37800000}{\beta}, & 0 \le t \le \frac{4200}{\theta}\\
+	\frac12 \theta b(\frac{4200}{\theta})^2 - C = \frac{3093967800}{\theta} - 1680000000 - \frac{37800000}{\beta}, & t \ge \frac{4200}{\theta}
+\end{cases}
+$$
+
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}
+		
+	\end{tikzpicture}
+	\caption{Caption}
+\end{figure}
+
+\end{document}
