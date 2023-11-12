@@ -52,16 +52,98 @@ $$
 p(t) = 
 \begin{cases}
  	\frac12 \theta bt^2 - C = 175.395\theta t^2 - 1680000000 - \frac{37800000}{\beta}, & 0 \le t \le \frac{4200}{\theta}\\
-	\frac12 \theta b(\frac{4200}{\theta})^2 - C = \frac{3093967800}{\theta} - 1680000000 - \frac{37800000}{\beta}, & t \ge \frac{4200}{\theta}
+	4200bt - C = 1473318t - 1680000000 - \frac{37800000}{\beta} - \frac{3093967800}{\theta}, & t > \frac{4200}{\theta}
 \end{cases}
 $$
 
 \begin{figure}[htb]
 	\centering
 	\begin{tikzpicture}
-		
+		% domain / 500, a / 3200 (k / 1600000), c / 800000000
+		\draw[->] (-1, 0) -- (12, 0) node[above left] {$t$ (days)};
+		\draw[->] (0, -3) -- (0, 7) node[below right] {$P(t)$ (billion \$)};
+		\node[below left] at (0, 0) {$O$};
+		% domain； 3818, a = 192.9345, k = 1473318, c1 = -1686300000, c2 = -4498998000
+		\draw[domain = 0 : 7.6] plot (\x, 0.06 * \x * \x - 2.1);
+		\draw[domain = 7.6 : 12] plot (\x, 0.92 * \x - 5.62);
+		\node[left] at (0, -2.1) {$-1.6863$};
 	\end{tikzpicture}
-	\caption{Caption}
+	\caption{$\theta = 1.1$, $\beta = 6$}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}
+		% domain / 500, a / 3200 (k / 1600000), c / 800000000
+		\draw[->] (-1, 0) -- (12, 0) node[above left] {$t$ (days)};
+		\draw[->] (0, -3) -- (0, 7) node[below right] {$P(t)$ (billion \$)};
+		\node[below left] at (0, 0) {$O$};
+		% theta = 1.0
+		% domain； 4200, a = 173.395, k = 1473318, c1 = -1686300000, c2 = -4780267800
+		\draw[red, domain = 0 : 8.4] plot (\x, 0.054 * \x * \x - 2.1);
+		\draw[red, domain = 8.4 : 12] plot (\x, 0.92 * \x - 6.01);
+		% theta = 1.1
+		% domain； 3818, a = 192.9345, k = 1473318, c1 = -1686300000, c2 = -4498998000
+		\draw[black, domain = 0 : 7.6] plot (\x, 0.06 * \x * \x - 2.1);
+		\draw[black, domain = 7.6 : 12] plot (\x, 0.92 * \x - 5.62);
+		% theta = 1.3
+		% domain； 3231, a = 228, k = 1473318, c1 = -1686300000, c2 = -4059975231
+		\draw[green, domain = 0 : 6.5] plot (\x, 0.07 * \x * \x - 2.1);
+		\draw[green, domain = 6.5 : 12] plot (\x, 0.92 * \x - 5.12);
+		% theta = 1.5
+		% domain； 2800, a = 263.1, k = 1473318, c1 = -1686300000, c2 = -3748945200
+		\draw[blue, domain = 0 : 5.6] plot (\x, 0.082 * \x * \x - 2.1);
+		\draw[blue, domain = 5.6 : 12] plot (\x, 0.92 * \x - 4.69);
+
+		\node[left] at (0, -2.1) {$-1.6863$};
+
+		% Legends
+		\draw[red] (9.5, -1) -- (10.5, -1) node[right] {$\theta = 1.0$};
+		\draw[black] (9.5, -1.5) -- (10.5, -1.5) node[right] {$\theta = 1.1$};
+		\draw[green] (9.5, -2) -- (10.5, -2) node[right] {$\theta = 1.3$};
+		\draw[blue] (9.5, -2.5) -- (10.5, -2.5) node[right] {$\theta = 1.5$};
+	\end{tikzpicture}
+	\caption{$\theta = 1.0, 1.1, 1.3, 1.5$, $\beta = 6$}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}
+	% 	\begin{cases}
+	% 		\frac12 \theta bt^2 - C = 175.395\theta t^2 - 1680000000 - \frac{37800000}{\beta}, & 0 \le t \le \frac{4200}{\theta}\\
+	% 	   4200bt - C = 1473318t - 1680000000 - \frac{37800000}{\beta} - \frac{3093967800}{\theta}, & t > \frac{4200}{\theta}
+	%    \end{cases}
+		% 2812698000
+		% domain / 500, a / 3200 (k / 1600000), c / 800000000
+		\draw[->] (-1, 0) -- (12, 0) node[above left] {$t$ (days)};
+		\draw[->] (0, -3) -- (0, 7) node[below right] {$P(t)$ (billion \$)};
+		\node[below left] at (0, 0) {$O$};
+		% beta = 2
+		% domain； 3818, a = 192.9345, k = 1473318, c1 = -1698900000, c2 = -4511598000
+		\draw[red, domain = 0 : 7.6] plot (\x, 0.06 * \x * \x - 2.12);
+		\draw[red, domain = 7.6 : 12] plot (\x, 0.92 * \x - 5.64);
+		% beta = 6
+		% domain； 3818, a = 192.9345, k = 1473318, c1 = -1686300000, c2 = -4498998000
+		\draw[black, domain = 0 : 7.6] plot (\x, 0.06 * \x * \x - 2.11);
+		\draw[black, domain = 7.6 : 12] plot (\x, 0.92 * \x - 5.62);
+		% beta = 10
+		% domain； 3818, a = 192.9345, k = 1473318, c1 = -1683780000, c2 = -4496478000
+		\draw[green, domain = 0 : 7.6] plot (\x, 0.06 * \x * \x - 2.1);
+		\draw[green, domain = 7.6 : 12] plot (\x, 0.92 * \x - 5.62);
+		% beta = 14
+		% 反正都差不多懒得算了
+		\draw[blue, domain = 0 : 7.6] plot (\x, 0.06 * \x * \x - 2.09);
+		\draw[blue, domain = 7.6 : 12] plot (\x, 0.92 * \x - 5.61);
+
+		\node[left] at (0, -2.1) {$-1.6863$};
+
+		% Legends
+		\draw[red] (9.5, -1) -- (10.5, -1) node[right] {$\beta = 2$};
+		\draw[black] (9.5, -1.5) -- (10.5, -1.5) node[right] {$\beta = 6$};
+		\draw[green] (9.5, -2) -- (10.5, -2) node[right] {$\beta = 10$};
+		\draw[blue] (9.5, -2.5) -- (10.5, -2.5) node[right] {$\beta = 14$};
+	\end{tikzpicture}
+	\caption{$\theta = 1.1$, $\beta = 2, 6, 10, 14$}
 \end{figure}
 
 \end{document}
