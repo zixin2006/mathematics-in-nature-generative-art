@@ -59,6 +59,21 @@ $$
 \begin{figure}[htb]
 	\centering
 	\begin{tikzpicture}
+		\draw[->] (-1, 0) -- (12, 0) node[below left] {$t$};
+		\draw[->] (0, -1) -- (0, 4) node[left] {$\frac{\mathrm{d}p}{\mathrm{d}t}$};
+		\node[below left] at (0, 0) {$O$};
+		% domain: 3818
+		\draw[domain = 0 : 7.6] plot (\x, 0.39 * \x);
+		\draw (7.6, 2.96) -- (12, 2.96);
+		\draw[lightgray, dashed] (7.6, 2.96) -- (0, 2.96) node[black, left] {$1473318$};
+		\draw[lightgray, dashed] (7.6, 2.96) -- (7.6, 0) node[black, below] {$3818$ (approx.)};
+	\end{tikzpicture}
+	\caption{Caption}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}
 		% domain / 500, a / 3200 (k / 1600000), c / 800000000
 		\draw[->] (-1, 0) -- (12, 0) node[above left] {$t$ (days)};
 		\draw[->] (0, -3) -- (0, 7) node[below right] {$P(t)$ (billion \$)};
