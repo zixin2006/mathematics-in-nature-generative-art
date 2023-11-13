@@ -1,0 +1,5 @@
+要求：
+1. 一共要一张standard state的图
+2. 三张SA的图，一张图三个curve，包括standard state与两组SA的细节
+3. 具体函数是图片上的g(x)
+
